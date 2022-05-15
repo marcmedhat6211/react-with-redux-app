@@ -2,6 +2,7 @@
  * If we are using class based components, we can use the connect method instead of the useSelector hook
  */
 import { useSelector, useDispatch } from "react-redux"; // we can use the useStore hook but it is more convenient to use useSelector because it gives us the ability to "select" what you want from the store
+import { counterActions } from "../store/index";
 
 import classes from "./Counter.module.css";
 
@@ -23,19 +24,23 @@ const Counter = () => {
   const showCounter = useSelector((state) => state.showCounter);
 
   const incrementHandler = () => {
-    dispatch({ type: "increment" });
+    // dispatch({ type: "increment" });
+    dispatch(counterActions.increment()); // as said before, returns a full object which has the type property
   };
 
   const increaseHandler = () => {
-    dispatch({ type: "increase", amount: 5 });
+    // dispatch({ type: "increase", amount: 5 });
+    dispatch(counterActions.increase(5)); // { type: SOME_UNIQUE_IDENTIFIER, payload: 10 }
   };
 
   const decrementHandler = () => {
-    dispatch({ type: "decrement" });
+    // dispatch({ type: "decrement" });
+    dispatch(counterActions.decrement());
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: "toggle" });
+    // dispatch({ type: "toggle" });
+    dispatch(counterActions.toggleCounter());
   };
 
   return (
