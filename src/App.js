@@ -1,8 +1,23 @@
+import { Fragment } from "react";
+import { useSelector } from "react-redux";
+
 import CounterFunction from "./components/CounterFunction";
+import Header from "./components/Header";
+import Auth from "./components/Auth";
+import UserProfile from "./components/UserProfile";
 // import CounterClass from "./components/CounterClass";
 
 function App() {
-  return <CounterFunction />;
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+
+  return (
+    <Fragment>
+      <Header />
+      {!isAuth && <Auth />}
+      {isAuth && <UserProfile />}
+      <CounterFunction />
+    </Fragment>
+  );
   // return <CounterClass />;
 }
 

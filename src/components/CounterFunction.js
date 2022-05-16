@@ -19,9 +19,11 @@ const Counter = () => {
    *  so the component will get updated and will receive the latest counter automatically whenever that data changes
    * if you unmount this DOM component from the DOM tree, react redux will automatically clear the subscription for you
    */
-  const counter = useSelector((state) => state.counter);
+  // const counter = useSelector((state) => state.counter); // this is used if you only have one slide at the redux store
+  const counter = useSelector((state) => state.counter.counter); // this is used when you are using multiple slices in the redux store, the first counter is the key you used in the configureStore reducer object and the second counter is the counter in the counter's state
 
-  const showCounter = useSelector((state) => state.showCounter);
+  // const showCounter = useSelector((state) => state.showCounter);
+  const showCounter = useSelector((state) => state.counter.showCounter);
 
   const incrementHandler = () => {
     // dispatch({ type: "increment" });
