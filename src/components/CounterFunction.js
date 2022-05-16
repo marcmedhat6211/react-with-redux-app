@@ -2,7 +2,7 @@
  * If we are using class based components, we can use the connect method instead of the useSelector hook
  */
 import { useSelector, useDispatch } from "react-redux"; // we can use the useStore hook but it is more convenient to use useSelector because it gives us the ability to "select" what you want from the store
-import { counterActions } from "../store/index";
+import { counterActions } from "../store/counter";
 
 import classes from "./Counter.module.css";
 
